@@ -29,8 +29,8 @@ Telegram-бот для базовой цифровой гигиены: гене�
 ## Установка и запуск
 
 ```bash
-git clone https://github.com/ApathyIsDead/secbot.git
-cd secbot
+git clone https://github.com/ApathyIsDead/SecBot.git
+cd SecBot
 
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
