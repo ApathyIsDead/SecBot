@@ -68,10 +68,8 @@ secbot/
 ## Roadmap
 
 - [ ] Локальная офлайн-проверка по топ-100k утечённых паролей (bloom filter) как альтернатива сетевому запросу
-- [ ] Юнит-тесты (pytest)
 - [ ] CI через GitHub Actions (ruff + tests)
 - [ ] Dockerfile
-- [ ] Проверка через платный HIBP breach API (сейчас доступно только через XposedOrNot)
 
 ## Технологии
 

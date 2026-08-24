@@ -35,6 +35,13 @@ def validate_email(raw_email: str) -> tuple[bool, str | None]:
         return False, "Почта не может быть пустой"
     if any(ord(ch) < 32 for ch in raw_email):
         return False, "Почта содержит недопустимые управляющие символы"
-    if "@" not in raw_email:
+
+    parts = raw_email.split("@")
+    if len(parts) != 2:
         return False, "Почта невалидна"
+    if not parts[0] or not parts[1]:
+        return False, "Почта невалидна"
+    if any(ch.isspace() for ch in raw_email):
+        return False, "Почта содержит пробелы"
+
     return True, None
