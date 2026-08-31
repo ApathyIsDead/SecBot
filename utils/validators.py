@@ -1,6 +1,7 @@
 MIN_PASSWORD_LENGTH = 4
 MAX_PASSWORD_LENGTH = 128
 
+
 def parse_command_arg(text: str | None) -> str | None:
     # Достаёт аргумент команды из текста сообщения (всё после первого слова).
     if text is None:
@@ -18,10 +19,14 @@ def validate_password_length(raw_length: str) -> tuple[int | None, str | None]:
     except ValueError:
         return None, "Длина должна быть числом. Пример: /password 12"
 
-    if not(MIN_PASSWORD_LENGTH <= length <= MAX_PASSWORD_LENGTH):
-        return None, f"Длина должна быть от {MIN_PASSWORD_LENGTH} до {MAX_PASSWORD_LENGTH} символов."
+    if not (MIN_PASSWORD_LENGTH <= length <= MAX_PASSWORD_LENGTH):
+        return (
+            None,
+            f"Длина должна быть от {MIN_PASSWORD_LENGTH} до {MAX_PASSWORD_LENGTH} символов.",
+        )
 
     return length, None
+
 
 def validate_password(raw_password: str) -> tuple[bool, str | None]:
     if not raw_password:
@@ -29,6 +34,7 @@ def validate_password(raw_password: str) -> tuple[bool, str | None]:
     if any(ord(ch) < 32 for ch in raw_password):
         return False, "Пароль содержит недопустимые управляющие символы"
     return True, None
+
 
 def validate_email(raw_email: str) -> tuple[bool, str | None]:
     if not raw_email:
